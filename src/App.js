@@ -5,12 +5,14 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Pages from "./Pages/Pages";
 import Data from './Components/flashDeals/Data'
 import Cart from './Components/cart/Cart'
-import Sdata from './Components/shop/Sdata';
+import Sdata from './Components/shops/Sdata';
+import Footer from './Components/footer/Footer';
+
 
 const App = () => {
   // step 1 : fetch data from database
   const { productItems } = Data
-  const {shopItems} = Sdata
+  const { shopItem } = Sdata
   const [cartItem, setCardItem] = useState([])
 
   
@@ -42,12 +44,13 @@ const App = () => {
           <Header cartItem={cartItem} />
           <Switch>
             <Route path="/" exact>
-              <Pages productItems={productItems} addToCart={addToCart}/>
+              <Pages productItems={productItems} addToCart={addToCart} shopItems={shopItem}/>
             </Route>
             <Route path="/cart" exact>
               <Cart cartItem={cartItem} addToCart={addToCart} decreaseQty={decreaseQty}/>
             </Route>
           </Switch>
+          <Footer/>
         </Router>
       </>
     )

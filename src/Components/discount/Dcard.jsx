@@ -20,6 +20,7 @@ const Dcard = () => {
        {Ddata.map((val,index)=>{
         
         return(
+          <>
             <div className='product' key={index}>
             <div className='box'>
                 <div className='img'>
@@ -29,6 +30,7 @@ const Dcard = () => {
                 <span>{val.price}</span>
             </div>
             </div>
+            </>
         )
         
        })}

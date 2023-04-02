@@ -1,14 +1,15 @@
 import React, { useState } from "react"
+import Sdata from "./Sdata"
+const ShopCart = ({ addToCart }) => {
+ const [count, setCount] = useState(0)
+ const increment = () => {
+   setCount(count + 1)
+ }
 
-const ShopCart = ({ shopItems, addToCart }) => {
-  const [count, setCount] = useState(0)
-  const increment = () => {
-    setCount(count + 1)
-  }
+ return (
+   <>
 
-  return (
-    <>
-      {shopItems.map((shopItems, index) => {
+     {Sdata.shopItems.map((shopItems) => {
         return (
           <div className='box'>
             <div className='product mtop'>
@@ -43,8 +44,11 @@ const ShopCart = ({ shopItems, addToCart }) => {
           </div>
         )
       })}
-    </>
-  )
+      
+   </>
+ )
 }
 
 export default ShopCart
+
+
